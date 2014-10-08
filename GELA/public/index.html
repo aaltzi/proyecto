@@ -8,21 +8,56 @@
 </head>
 <body>
 
-<section id="log">
-	<form action="/login" method="post">
-		<div id="username">
-			<label>Nombre de usuario:</label>
-			<input type="text" name="username"/>
-		</div>
-		<div id="password">
-			<label>Contraseña:</label>
-			<input type="password" name="password"/>
-		</div>
-		<div>
-			<input type="submit" value="Log In"/>
-		</div>
-	</form>
-</section>
+<div id="main">
+	<div id="logo">
+		<h1><img src="img200x200.jpg" alt="Cabecera"></h1>
+	</div>
+	<div id="centro">
+		<section id="log">
+			<form action="/login" method="post">
+				<div id="username">
+					<label>Nombre de usuario:</label><br>
+					<input type="text" name="username"/>
+				</div>
+				<div id="password">
+					<label>Contraseña:</label><br>
+					<input type="password" name="password"/>
+				</div>
+				<div><br>
+					<input type="submit" value="Log In"/>
+				</div>
+			</form>
+		</section>
+		<section id="register">
+			<form action="/register" method="post">
+				<div id="username2">
+					<label>Nombre de usuario:</label><br>
+					<input type="text" name="username2"/>
+				</div>
+				<div id="password2">
+					<label>Contraseña:</label><br>
+					<input type="password" name="password2"/>
+				</div>
+				<div id="pass2">
+					<label>Confirmar Contraseña:</label><br>
+					<input type="password" name="password2"/>
+				</div>
+				<div id="mail">
+					<label>E-Mail:</label><br>
+					<input type="text" name="mail"/>
+				</div>
+				<div><br>
+					<input type="submit" value="Register"/>
+				</div>
+			</form>
+		</section>
+	</div>
+	<footer id="the_footer">
+		Copyright 2014-2015©
+	</footer>
+</div>
+
+
 
 </body>
 </html>	
