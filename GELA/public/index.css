@@ -10,14 +10,13 @@ h2{
 	font: bold 12px Tahoma;
 }
 body{
-	background: #D0FFFB;
+	background: #F5DA81;
 	width: 100%;
 	display: -webkit-box;
 	-webkit-box-pack; center;
 }
 
 #main{
-	/*border: 1px solid black;*/
 	max-width: 1000px;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
@@ -30,7 +29,6 @@ body{
 }
 #logo{
 	padding: 20px;	
-	/*border: 1px solid black;*/
 	margin-bottom:20px;
 }
 #log{
@@ -52,7 +50,6 @@ body{
 #centro{
 	padding: 20px;
 	padding-bottom: 80px;
-	/*border: 1px solid black;*/
 	display:-webkit-box;
 	-webkit-box-orient:horizontal;
 }
@@ -60,5 +57,5 @@ body{
 	clear: both;
 	text-align: center;
 	padding: 20px;
-	border-top: 2.5px solid #A6E4DD;
+	border-top: 2.5px solid #FFBF00;
 }
