@@ -6,16 +6,21 @@ h1{
 	font: bold 20px Tahoma;
 	text-align: center;
 }
+/**/
 h2{
 	font: bold 12px Tahoma;
 }
 body{
-	background: #F5DA81;
+	background: url("fondo1.jpg") no-repeat;
+	background-size: 100% 100%;
 	width: 100%;
 	display: -webkit-box;
 	-webkit-box-pack; center;
 }
-
+#olvidar{
+	font: 10px Tahoma;
+	text-align: right;
+}
 #main{
 	max-width: 1000px;
 	display: -webkit-box;
@@ -32,23 +37,35 @@ body{
 	margin-bottom:20px;
 }
 #log{
+	-webkit-border-radius: 20px 15.5px;
+	background: rgba(10, 10, 42, 0.8);
 	max-width: 1000px;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-box-flex: 1;
-	padding: 10px;
-	margin-left:12%;
+	padding: 30px;
+	margin-left:7%;
+	margin-right:7%;
 }
 #register{
+	-webkit-border-radius: 20px 15.5px;
+	background: rgba(10, 10, 42, 0.8);
 	max-width: 1000px;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-box-flex: 1;
-	padding: 10px;
-	margin-left:12%;
+	padding: 30px;
+	margin-left:7%;
+	margin-right:7%;
 }
 #centro{
-	padding: 20px;
+	padding: 15px;
+	padding-bottom: 80px;
+	display:-webkit-box;
+	-webkit-box-orient:horizontal;
+}
+#middle{
+	padding: 30px;
 	padding-bottom: 80px;
 	display:-webkit-box;
 	-webkit-box-orient:horizontal;
@@ -57,7 +74,7 @@ body{
 	clear: both;
 	text-align: center;
 	padding: 20px;
-	border-top: 2.5px solid #FFBF00;
+	color: grey;
 }
 .buttons {
 	margin-right:10px;

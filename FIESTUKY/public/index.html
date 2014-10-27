@@ -14,33 +14,39 @@
 	</div>
 	<div id="centro">
 		<section id="log">
-			<form action="/login" method="post">
+			<form action="/login" method="get">
 				<div id="username">
 					<label>Nombre de usuario:</label><br>
-					<input class='txtarea' type="text" name="username"/>
+					<input class='txtarea' type="text" name="user"/>
 				</div>
 				<div id="password">
 					<label>Contraseña:</label><br>
-					<input class='txtarea' type="password" name="password"/>
+					<input class='txtarea' type="password" name="pass"/>
 				</div>
 				<div><br>
-					<input class="buttons" type="submit" value="Iniciar Sesión"/>
+					<input class="buttons" type="submit" value="Iniciar Sesión" action="pagina.html"/>
+				</div>
+				<div><br>
+					<p id="olvidar"><a href="">¿has olvidado la contraseña?</a><p>
 				</div>
 			</form>
+		</section>
+		<section id="middle">
+		
 		</section>
 		<section id="register">
 			<form action="/register" method="post">
 				<div id="username2">
 					<label id="txt">Nombre de usuario:</label><br>
-					<input class='txtarea' type="text" name="username2"/>
+					<input class='txtarea' type="text" name="user2"/>
 				</div>
 				<div id="password2">
 					<label>Contraseña:</label><br>
-					<input class='txtarea' type="password" name="password2"/>
+					<input class='txtarea' type="password2" name="pass2"/>
 				</div>
 				<div id="pass2">
 					<label>Confirmar Contraseña:</label><br>
-					<input class='txtarea' type="password" name="password2"/>
+					<input class='txtarea' type="password3" name="pass3"/>
 				</div>
 				<div id="mail">
 					<label>E-Mail:</label><br>
