@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Pre-Fiestuky</title>
 <link href="index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./server.js"></script>
 </head>
 <body>
 
@@ -17,7 +18,7 @@
 			<form action="/login" method="get">
 				<div id="username">
 					<label>Nombre de usuario:</label><br>
-					<input class='txtarea' type="text" name="user"/>
+					<input class='txtarea' type="text" name="username"/>
 				</div>
 				<div id="password">
 					<label>Contraseña:</label><br>
@@ -27,7 +28,7 @@
 					<input class="buttons" type="submit" value="Iniciar Sesión" action="pagina.html"/>
 				</div>
 				<div><br>
-					<p id="olvidar"><a href="">¿has olvidado la contraseña?</a><p>
+					<p><a class="olvidar" href="">¿has olvidado la contraseña?</a></p>
 				</div>
 			</form>
 		</section>

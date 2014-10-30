@@ -1,6 +1,6 @@
 module.exports = function(app) {
 
-	var Usuario = require('./usuario');
+	var Usuario = require('./server');
 
 	// GET
 	findAllUsuarios = function(req,res) {
