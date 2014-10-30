@@ -75,7 +75,7 @@ body{
 	padding-right: 14px;
 	-webkit-border-radius: 20px 15.5px;
 	border: 1px solid grey;
-	font: 14px cursive;
+	font: 14px sans-serif;
 }
 .buttons:hover{
 	opacity:1;
@@ -91,11 +91,11 @@ body{
 	margin-left:8px;
 }
 label{
-	font: 14px cursive;
+	font: 14px sans-serif;
 	color: grey;
 }
 .olvidar{
-	font: 9px cursive;
+	font: 9px sans-serif;
 	text-align: right;
 	color: grey;
 	margin-left: 80px;

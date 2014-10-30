@@ -31,8 +31,18 @@ window.onload=function(){
 GetClock();
 setInterval(GetClock,1000);
 }
+<!-- Elementos de Discotecas -->
+
 </script>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+function toggle_visibility(id) {
+  $(".list").hide();
+  $("#" + id).toggle();
+}
+
+</script>
 </head>
 <body>
 
@@ -50,7 +60,7 @@ setInterval(GetClock,1000);
 		<ul><a class="menu" href=""><img src="user.gif">  Perfil</a></ul>
 		<ul><a class="menu" href=""><img src="calendar.gif">  Eventos</a></ul>
 		<ul><a class="menu" href=""><img src="open-folder.gif">  Galería</a></ul>
-		<ul><a class="menu" href="">¿? Amigos</a></ul>
+		<ul><a class="menu" href=""><img src="amigos.png"> Amigos</a></ul>
 		<ul><a class="menu" href=""><img src="flag.gif">  Configuración</a></ul>
 		<ul><a class="menu" href=""><img src="key.gif">  Salir</a></ul>
 	</li>
@@ -74,7 +84,65 @@ setInterval(GetClock,1000);
 </ul>
 </div>
 <div id="contenido">
+<h2 id="titulo_cuerpo">Discotecas</h2>
+<li class="comu_auto">Pais Vasco
+	<a href="#Gipuzkoa" onclick="toggle_visibility('list1');">
+	  <p class="provincia">Gipuzkoa</p>
+	</a>
+	<div id="list1" class="alist" style="display:none;">
+	  <ul>
+		<li><a href="https://www.facebook.com/arraun.donosti">Arraun</a></li>
+		<li><a href="http://bataplandisco.com/">Bataplán</a></li>
+		<li><a href="https://www.facebook.com/bebopbardonostia">Be Bop</a></li>
+		<li><a href="https://www.facebook.com/pages/Le-Bukowski/186625226388?directed_target_id=0">Bukowski</a></li>
+		<li><a href="">Badabada</a></li>
+		<li><a href="http://www.etxekalte.com/Etxekalte___Programazioa.html">Etxekalte</a></li>
+		<li><a href="">Gure Leku</a></li>
+		<li><a href="">Inox Disko</a></li>
+		<li><a href="">Komplot</a></li>
+		<li><a href="">Lokotx</a></li>
+		<li><a href="">News Guass</a></li>
+		<li><a href="">Pagoa</a></li>
+		<li><a href="">Txitxarro</a></li>
+	  </ul>
+	</div>
+	<a href="#Bizkaia" onclick="toggle_visibility('list2');">
+	  <p class="provincia">Bizkaia</p>
+	</a>
+	<div id="list2" class="alist" style="display:none;">
+	  <ul>
+		<li><a href="">Bamboo Terraza</a></li>
+		<li><a href="">Conpect Club</a></li>
+		<li><a href="">Conjunto Vacio</a></li>
+		<li><a href="">Distrito 9</a></li>
+		<li><a href="">El Balcón de la Lola</a></li>
+		<li><a href="">Fever</a></li>
+		<li><a href="">Kafé Antzokia</a></li>
+		<li><a href="">Revolution</a></li>
+		<li><a href="">Rock Star</a></li>
+		<li><a href="">Sorona</a></li>
+		<li><a href="">Sweet & Vicious</a></li>
+		<li><a href="">The Loft</a></li>
+	  </ul>
+	</div>
+	<a href="#Araba" onclick="toggle_visibility('list3');">
+	  <p class="provincia">Araba</p>
+	</a>
+	<div id="list3" class="alist" style="display:none;">
+	  <ul>
+		<li><a href="">Cafe Dublin</a></li>
+		<li><a href="">Darkablar</a></li>
+		<li><a href="">El Jardín de Falerina</a></li>
+		<li><a href="">Jimmy Jazz</a></li>
+		<li><a href="">Kubik</a></li>
+		<li><a href="">OM Café & Club</a></li>
+	  </ul>
+	</div>
+	
+</li>
+<!--
 <iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ikzubirimanteo.com_guv48jh017v90oenu2a7hk94f0%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FMadrid" style=" border-width:0 " width="600" height="400" frameborder="0" scrolling="no"></iframe>
+-->
 </div>
 
 <div id="footer">

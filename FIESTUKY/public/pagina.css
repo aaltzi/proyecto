@@ -184,3 +184,34 @@ fieldset{
 
 #search br {
 }
+
+/** Cuerpo */
+#titulo_cuerpo{
+	margin: 15px;
+}
+.comu_auto{
+	margin: 12px;
+	margin-left: 25px;
+}
+#contenido li{
+	margin: 15px;
+	margin-left: 25px;
+	list-style: none;
+}
+#contenido li p{
+	margin: 15px;
+	margin-left: 25px;
+}
+a, p{
+	text-decoration:none;
+	color: black;
+}
+ul{
+	color:black;
+}
+#contenido li ul li a{
+	text-decoration:none;
+	color: black;
+}
+
+
