@@ -50,31 +50,7 @@ app.get('/', function(req, res){
 
 /*LOG*/
 /*http://danialk.github.io/blog/2013/02/23/authentication-using-passportjs/*/
-/*var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
 
-app.use(express.cookieParser());
-app.use(express.bodyParser());
-app.use(express.session({ secret: 'SECRET'}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.use(new LocalStrategy(function(username, password,done){
-    Users.findOne({ username : username},function(err,user){
-        if(err) { return done(err); }
-        if(!user){
-            return done(null, false, { message: 'Incorrect username.' });
-        }
-
-        pass( password, user.salt, function (err, pass) {
-            if (err) { return done(err); }
-            if (pass == user.pass) return done(null, user);
-            done(null, false, { message: 'Incorrect password.' });
-        });
-    });
-}));
-*/
 /*************************************************/
 // Recoger usuario local
 passport.use(new LocalStrategy(
@@ -174,10 +150,11 @@ var Users = mongoose.model('Users',usuario);
 
 /***************************************************/
 
+/*
 app.get('/login', function(req, res){
   res.redirect('pagina.html');
 });
-
+*/
 require('./routes')(app);
 
 app.listen(5000);
