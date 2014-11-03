@@ -94,10 +94,10 @@ label{
 	font: 14px sans-serif;
 	color: grey;
 }
-.olvidar{
+#olvidar{
 	font: 9px sans-serif;
 	text-align: right;
+}
+.olvidar{
 	color: grey;
-	margin-left: 80px;
-	
 }

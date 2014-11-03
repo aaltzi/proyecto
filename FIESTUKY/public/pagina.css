@@ -5,7 +5,7 @@ body {
 	color: #BBBBBB;
 }
 h1, h2 {
-	font:cursive;
+	font:sans-serif;
 	margin: 0;
 	font-weight: normal;
 	color: #6A0888;
@@ -20,7 +20,7 @@ h2 {
 	font-size: 23px;
 }
 h3{
-	font: 18px cursive;
+	font: 18px sans-serif;
 	color: grey;
 }
 a:link {
@@ -100,7 +100,7 @@ a:visited {
 	margin-right: 3px;
 	padding: 10px 20px;
 	text-decoration: none;
-	font: 14.2px cursive;
+	font: 14.2px sans-serif;
 	color: grey;
 }
 
@@ -129,7 +129,7 @@ a:visited {
 /** CALENDARIO */
 #calendario{
 	margin: 10px;
-	padding: 10px;
+	padding: 5px;
 	padding-top: 30px;
 }
 #lateral {
@@ -213,5 +213,6 @@ ul{
 	text-decoration:none;
 	color: black;
 }
+
 
 
