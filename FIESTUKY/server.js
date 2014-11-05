@@ -41,12 +41,11 @@ passport.deserializeUser(function(user, done) {
 });
 
 /*Usuario*/
-var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+var mongoose = require('mongoose');
 
-var usuario = new Schema({
-  username: String,
-  pass: String,
+var usuario = new mongoose.Schema({
+  user: String,
+  password: String,
   mail: String
 });
 
@@ -68,33 +67,33 @@ passport.use(new LocalStrategy(
   function(username, password, done) {
 
     // usuario local
-    console.log(user);
+    console.log(username);
     console.log(password);
 
 
-    Users.find({ username : user }, function (err, users) {
+    Users.find({ name : username }, function (err, users) {
       if (err) return console.error(err);
       console.log('Find user:');
       console.log(users);
 
       // Desglose del usuario encontrado
-      console.log(users[0].pass);
+      console.log(users[0].password);
       console.log(users[0].username);
 
-      var hash = users[0].pass;
+      var hash = users[0].password;
 
       // compara usuario local(username y pass) con el de la base de datos(Users.name y .pass) 
       //if ((username == Users.name) && (bcrypt.compareSync(pass, hash))) {
-      if ((user == users[0].username) && (password==hash)) {
+      if ((username == users[0].user) && (password==hash)) {
         // login OK
-        return done(null, user);
+        return done(null, username);
       } else {
         // login KO
         console.log("resultados:");
-        console.log("usuario local: "+user);
+        console.log("usuario local: "+username);
         console.log("usuario db: "+users[0].username);
         console.log("contraseña local: "+password);
-        console.log("contraseña bd: "+users[0].pass);
+        console.log("contraseña bd: "+users[0].password);
         return done(null, false);
       }
 
