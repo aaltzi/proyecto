@@ -2,6 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 var app = express();
 var session = require('express-session');
 var passport = require('passport');
@@ -24,42 +25,35 @@ db.once('open', function callback() {
 app.configure(function() {
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
+  app.use(passport.initialize());
+  app.use(passport.session()); 
 	app.use(app.router);
-});
+  app.use(bodyParser.urlencoded({ extended: false }));
+  // public files
+  app.use(express.static(__dirname + '/public'));
+  app.use(session({ secret: 'topsecret',
+                  saveUninitialized: true,
+                  resave: true }));
+  });
 
-/*
-passport.serializeUser
-passport.deserializeUser
-*/
-
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
+  passport.serializeUser(function(user, done) {
+    done(null, user);
+  });
 
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
-/*Usuario*/
-var mongoose = require('mongoose');
-
 var usuario = new mongoose.Schema({
-  user: String,
-  password: String,
-  mail: String
-});
+  name: String,
+  password: String
+},{ collection : 'Users' });
 
 var Users = mongoose.model('Users',usuario);
-
-// public files
-app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
 	res.redirect('index.html');
 });
-
-/*LOG*/
-/*http://danialk.github.io/blog/2013/02/23/authentication-using-passportjs/*/
 
 /*************************************************/
 // Recoger usuario local
@@ -71,27 +65,27 @@ passport.use(new LocalStrategy(
     console.log(password);
 
 
-    Users.find({ name : username }, function (err, users) {
+    Users.find({ name: username}, function (err, users) {
       if (err) return console.error(err);
       console.log('Find user:');
       console.log(users);
 
       // Desglose del usuario encontrado
       console.log(users[0].password);
-      console.log(users[0].username);
+      console.log(users[0].name);
 
       var hash = users[0].password;
 
       // compara usuario local(username y pass) con el de la base de datos(Users.name y .pass) 
       //if ((username == Users.name) && (bcrypt.compareSync(pass, hash))) {
-      if ((username == users[0].user) && (password==hash)) {
+      if ((username == users[0].name) && (password==hash)) {
         // login OK
         return done(null, username);
       } else {
         // login KO
         console.log("resultados:");
         console.log("usuario local: "+username);
-        console.log("usuario db: "+users[0].username);
+        console.log("usuario db: "+users[0].name);
         console.log("contraseña local: "+password);
         console.log("contraseña bd: "+users[0].password);
         return done(null, false);
@@ -102,14 +96,7 @@ passport.use(new LocalStrategy(
 ));
 
 
-app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(session({ secret: 'topsecret',
-                  saveUninitialized: true,
-                  resave: true }));
-
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
 
 app.post('/login',
   passport.authenticate('local', { successRedirect: '/loginSuccess',
@@ -127,7 +114,7 @@ app.get('/loginFailure', function(req,res) {
 
 
 app.get('/loginSuccess', ensureAuthenticated, function(req,res) {
-  res.send('Login OK. Hello ' + req.user);
+  res.send('Login OK!!!');
 });
 
 // Simple route middleware to ensure user is authenticated.
@@ -137,7 +124,7 @@ app.get('/loginSuccess', ensureAuthenticated, function(req,res) {
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/');
+  res.redirect('/pagina.html');
 }
 
 app.get('/logout', function(req, res){
