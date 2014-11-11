@@ -7,7 +7,7 @@
 <!--<link rel="shortcut icon" href="http://XXXXrutaXXXX/favicon.ico">-->
 <title>Fiestuky</title>
 <link href="pagina.css" rel="stylesheet" type="text/css" />
-
+<script type="text/javascript" src="./server.js"></script>
 <script type="text/javascript">
 tday=new Array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
 tmonth=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
@@ -63,7 +63,7 @@ function toggle_visibility(id) {
 		<ul><a class="menu" href=""><img src="open-folder.gif">  Galería</a></ul>
 		<ul><a class="menu" href=""><img src="amigos.png"> Amigos</a></ul>
 		<ul><a class="menu" href=""><img src="flag.gif">  Configuración</a></ul>
-		<ul><a class="menu" href=""><img src="key.gif">  Salir</a></ul>
+		<ul><a action="/logout" class="menu" href=""><img src="key.gif">  Salir</a></ul>
 	</li>
 </div>
 <ul>

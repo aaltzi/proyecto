@@ -6,9 +6,14 @@ h1{
 	text-align: center;
 }
 /**/
+html { 
+  background: url("fondo1.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 body{
-	background: url("fondo1.jpg") no-repeat;
-	background-size: 100% 100%;
 	width: 100%;
 	display: -webkit-box;
 	-webkit-box-pack: center;
@@ -24,8 +29,9 @@ body{
 	padding-bottom: 10px;
 	margin: 20px;
 }
-#logo{
-	padding: 15px;	
+div.logo{
+	padding: 15px;
+content:url("logo.png");	
 }
 #log{
 	-webkit-border-radius: 20px 15.5px;
@@ -89,14 +95,26 @@ body{
 	outline: none;
 	margin: 6px;
 	margin-left:8px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 85%;
 }
 label{
 	font: 14px sans-serif;
 	color: grey;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
 }
 #olvidar{
 	font: 9px sans-serif;
 	text-align: right;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
 }
 .olvidar{
 	color: grey;
