@@ -112,10 +112,16 @@ function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/pagina.html');
 }
+app.use(session({
+                  resave:true,
+                  saveUninitialized:true,
+                  secret:'uwotm8'
+                })
+);
 // Redirecciones
 // Salir de la sesion ...¿?
 app.get('/logout', function(req, res){
-  req.logout();
+  req.session.user = null;
   res.redirect('/');
 });
 app.get('/', function(req,res) {

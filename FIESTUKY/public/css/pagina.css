@@ -10,12 +10,10 @@ h1, h2 {
 	font-weight: normal;
 	color: #6A0888;
 }
-
 h1 {
 	letter-spacing: -1px;
 	font-size: 32px;
 }
-
 h2 {
 	font-size: 23px;
 }
@@ -26,12 +24,10 @@ h3{
 a:link {
 	color: #48ACDE;
 }
-
 a:hover, a:active {
 	text-decoration: none;
 	color: #48ACDE;
 }
-
 a:visited {
 	color: #48ACDE;
 }
@@ -42,39 +38,32 @@ a:visited {
 	-webkit-box-orient: horizontal;
 	-webkit-box-pack: center;
 }
-
 #logo {
 	height: 60px;
 	-webkit-box-flex:3;
 }
-
 #logo h1, #logo h2 {
 	float: left;
 	padding: 0 0 0 20px;
 	line-height: normal;
 }
-
 #logo h1 { 
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size:36px;
 	font-style: italic;
 }
-
 #logo h2 {
 	padding: 20px 0 0 5px;
 	font: italic 13px Georgia, "Times New Roman", Times, serif;
 	color: ##48ACDE;
 }
-
 /** RELOJ */
 #clockbox{
 	-webkit-box-flex:10;
 	text-align:right;
 	margin-top:30px;
 }
-
 /* Menu */
-
 #barra_menu {
 	float: left;
 	width: 60%;
@@ -84,19 +73,16 @@ a:visited {
 	border:1px;
 	-webkit-border-radius: 6px 6px;
 }
-
 #barra_menu ul {
 	margin: 0;
 	padding: 5px 0 0 0px;
 	list-style: none;
 	line-height: normal;
 }
-
 #barra_menu li {
 	display: block;
 	float: left;
 }
-
 #barra_menu a {
 	display: block;
 	float: left;
@@ -106,12 +92,10 @@ a:visited {
 	font: 14.2px sans-serif;
 	color: grey;
 }
-
 #barra_menu a:hover { 
 	text-decoration: none; 
 	color: #48ACDE;
 }
-
 #barra_menu .current_page_item a {
 	color: #48ACDE;
 }
@@ -126,17 +110,14 @@ a:visited {
 fieldset{
 	-webkit-border-radius: 6px 6px;
 }
-
 #searchform {
 	padding: 12px;
 }
-
 #search h3 {
 	width: 50%;
 	margin-left: 15px;
 	margin-bottom: -3px;
 }
-
 #search #btn {
 	float: right;
 	-webkit-border-radius: 6px 6px;
@@ -210,7 +191,6 @@ fieldset{
 iframe{
 	-webkit-border-radius: 6px 6px;
 }
-
 /** Cuerpo */
 #titulo_cuerpo{
 	margin: 15px;

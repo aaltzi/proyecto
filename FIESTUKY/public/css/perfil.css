@@ -14,7 +14,6 @@ h1 {
 	letter-spacing: -1px;
 	font-size: 32px;
 }
-
 h2 {
 	font-size: 23px;
 }
@@ -194,7 +193,7 @@ iframe{
 }
 /** Cuerpo */
 #contenido{
-padding-bottom:30px;
+	padding-bottom:30px;
 }
 #img-perfil{
 	content:url("../images/img200x200.jpg");	
