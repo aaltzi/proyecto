@@ -1,4 +1,4 @@
-// DEPENDENCIAS
+﻿// DEPENDENCIAS
 var express = require('express');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
@@ -10,8 +10,10 @@ var passport = require('passport');
 var LocalStrategy =require('passport-local').Strategy;
 
 // CONEXIÓN BASE DE DATOS
-var user=process.env.USER;
-var password=process.env.PASSWORD;
+// var user=process.env.USER;
+// var password=process.env.PASSWORD;
+var user="aaltzi";
+var password="zubiri";
 mongoose.connect('mongodb://'+user+':'+password+'@ds049150.mongolab.com:49150/fiestuky');
 var db = mongoose.connection;
 // comprobar conexión

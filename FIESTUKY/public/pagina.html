@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-
+<!-- https://developer.salesforce.com/page/Google_Calendar_API#Authenticating_to_the_Calendar_service -->
+<!-- https://github.com/google/google-api-nodejs-client -->
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 <!--<link rel="shortcut icon" href="http://XXXXrutaXXXX/favicon.ico">-->
 <title>Fiestuky</title>
-<link href="pagina.css" rel="stylesheet" type="text/css" />
+<link href="css/pagina.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="./server.js"></script>
 <script type="text/javascript">
 tday=new Array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
@@ -48,8 +49,10 @@ function toggle_visibility(id) {
 
 <section id="logo-wrap">
 	<div id="logo">
-		<h1> Fiestuky </h1>
-		<h2> pasarlo bien nunca esta demás</h2>
+		<a href="pagina.html">
+			<h1> Fiestuky </h1>
+			<h2> pasarlo bien nunca esta demás</h2>
+		</a>
 	</div>
 	<div id="centro"></div>
 	<div id="clockbox"></div>
@@ -58,15 +61,15 @@ function toggle_visibility(id) {
 <div id="lateral">
 <div id="barra_menu">
 	<li>
-		<ul><a class="menu" href=""><img src="user.gif">  Perfil</a></ul>
-		<ul><a class="menu" href=""><img src="calendar.gif">  Eventos</a></ul>
-		<ul><a class="menu" href=""><img src="open-folder.gif">  Galería</a></ul>
-		<ul><a class="menu" href=""><img src="amigos.png"> Amigos</a></ul>
-		<ul><a class="menu" href=""><img src="flag.gif">  Configuración</a></ul>
-		<ul><a action="/logout" class="menu" href=""><img src="key.gif">  Salir</a></ul>
+		<ul><a class="menu" href="perfil.html"><img src="../images/user.gif">  Perfil</a></ul>
+		<ul><a class="menu" href="eventos.html"><img src="../images/calendar.gif">  Eventos</a></ul>
+		<ul><a class="menu" href="galeria.html"><img src="../images/open-folder.gif">  Galería</a></ul>
+		<ul><a class="menu" href="amigos.html"><img src="../images/amigos.png"> Amigos</a></ul>
+		<ul><a class="menu" href="configuracion.html"><img src="../images/flag.gif">  Configuración</a></ul>
+		<ul><a action="/logout" class="menu" href=""><img src="../images/key.gif">  Salir</a></ul>
 	</li>
 </div>
-<ul>
+<div id="sub_barra_menu">
 	<li id="search">
 		<h3>Busqueda</h3>
 		<form id="searchform" method="get" action="">
@@ -78,15 +81,15 @@ function toggle_visibility(id) {
 	</li>
 	
 	<li id="calendario">
-	<!--CALENADRIO-->
+	<!--CALENADRIO
 	<iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=ikzubirimanteo.com_guv48jh017v90oenu2a7hk94f0%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FMadrid" style=" border:solid 1px #777 " width="235" height="300" frameborder="0" scrolling="no"></iframe>
 	<!-- google calendar -->
 	</li>
-</ul>
+</div>
 </div>
 <div id="contenido">
 <h2 id="titulo_cuerpo">Discotecas</h2>
-<li class="comu_auto">Pais Vasco
+<li class="comu_auto">Euskal Herria
 	<a href="#Gipuzkoa" onclick="toggle_visibility('list1');">
 	  <p class="provincia">Gipuzkoa</p>
 	</a>
@@ -139,8 +142,6 @@ function toggle_visibility(id) {
 		<li><a href="">OM Café & Club</a></li>
 	  </ul>
 	</div>
-</li>
-<li class="comu_auto">Navarra
 	<a href="#Nafarroa" onclick="toggle_visibility('list4');">
 	  <p class="provincia">Nafarroa</p>
 	</a>
@@ -161,12 +162,5 @@ function toggle_visibility(id) {
 <iframe src="https://www.google.com/calendar/embed?showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ikzubirimanteo.com_guv48jh017v90oenu2a7hk94f0%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FMadrid" style=" border-width:0 " width="600" height="400" frameborder="0" scrolling="no"></iframe>
 -->
 </div>
-
-<div id="footer">
-	<div id="footer-wrap">
-	<p></p>
-	</div>
-</div>
-
 </body>
 </html>

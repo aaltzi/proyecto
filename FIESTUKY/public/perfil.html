@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- https://developer.salesforce.com/page/Google_Calendar_API#Authenticating_to_the_Calendar_service -->
+<!-- https://github.com/google/google-api-nodejs-client -->
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="images/favicon.ico">
+<!--<link rel="shortcut icon" href="http://XXXXrutaXXXX/favicon.ico">-->
+<title>Fiestuky</title>
+<link href="css/perfil.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./server.js"></script>
+<script type="text/javascript">
+tday=new Array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
+tmonth=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
+function GetClock(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear(),nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+     if(nhour==0){ap=" AM";nhour=12;}
+else if(nhour<12){ap=" AM";}
+else if(nhour==12){ap=" PM";}
+else if(nhour>12){ap=" PM";nhour-=12;}
+
+if(nyear<1000) nyear+=1900;
+if(nmin<=9) nmin="0"+nmin;
+if(nsec<=9) nsec="0"+nsec;
+
+document.getElementById('clockbox').innerHTML=""+tday[nday]+", "+ndate+" de "+tmonth[nmonth]+" de "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+}
+
+window.onload=function(){
+GetClock();
+setInterval(GetClock,1000);
+}
+<!-- Elementos de Discotecas -->
+
+</script>
+</head>
+<body>
+
+<section id="logo-wrap">
+	<div id="logo">
+		<a href="pagina.html">
+			<h1> Fiestuky </h1>
+			<h2> pasarlo bien nunca esta demás</h2>
+		</a>
+	</div>
+	<div id="centro"></div>
+	<div id="clockbox"></div>
+</section>
+
+<div id="lateral">
+<div id="barra_menu">
+	<li>
+		<ul><a class="menu" href="perfil.html"><img src="../images/user.gif">  Perfil</a></ul>
+		<ul><a class="menu" href="eventos.html"><img src="../images/calendar.gif">  Eventos</a></ul>
+		<ul><a class="menu" href="galeria.html"><img src="../images/open-folder.gif">  Galería</a></ul>
+		<ul><a class="menu" href="amigos.html"><img src="../images/amigos.png"> Amigos</a></ul>
+		<ul><a class="menu" href="configuracion.html"><img src="../images/flag.gif">  Configuración</a></ul>
+		<ul><a action="/logout" class="menu" href=""><img src="../images/key.gif">  Salir</a></ul>
+	</li>
+</div>
+<ul>
+	<li id="search">
+		<h3>Busqueda</h3>
+		<form id="searchform" method="get" action="">
+			<fieldset>
+			<input type="text" name="s" id="txt" size="15" value="" placeholder="Nombre de Amig@"/>
+			<input type="submit" id="btn" value="Buscar" />
+			</fieldset>
+		</form>
+	</li>
+</ul>
+</div>
+<div id="contenido">
+	<div id="marco">
+		<div id="actual">
+			<h3>Nombre de usuario: </h3>
+			<label id="username">Alexander</label>
+			<h3>Contraseña: </h3>
+			<label id="password">zubiri</label>
+			<h3>Imagen de Perfil: </h3>
+			<div id="img-perfil"></div>
+		</div>
+		<div id="nuevo">
+			<form id="formulario" method="post" enctype="multipart/form-data"><br>
+				<h3>Nuevo nombre de usuario: </h3>
+					<input class='txtarea' type="text" name="usuario"/>
+				<h3>Nueva contraseña: </h3>
+					<input class='txtarea' type="password" name="password1"/>
+				<h3>Confirmar nueva contraseña: </h3>
+					<input class='txtarea' type="password" name="password2"/>
+				<br><br>
+				<input type="file" size=60 name="flfoto"><br><br>
+				<input type="submit" value="Realizar cambios"><br>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
