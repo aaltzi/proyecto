@@ -1,4 +1,6 @@
-ï»¿// DEPENDENCIAS
+//http://www.desarrolloweb.com/manuales/manual-nodejs.html
+
+// DEPENDENCIAS
 var express = require('express');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
@@ -9,20 +11,20 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy =require('passport-local').Strategy;
 
-// CONEXIÃ“N BASE DE DATOS
+// CONEXIÓN BASE DE DATOS
 // var user=process.env.USER;
 // var password=process.env.PASSWORD;
 var user="aaltzi";
 var password="zubiri";
 mongoose.connect('mongodb://'+user+':'+password+'@ds049150.mongolab.com:49150/fiestuky');
 var db = mongoose.connection;
-// comprobar conexiÃ³n
+// comprobar conexión
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function callback() {
 	console.log('Conecction OK!!!');
 });
 
-// ConfiguraciÃ³n de las dependencias...
+// Configuración de las dependencias...
 app.configure(function() {
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
@@ -33,15 +35,14 @@ app.configure(function() {
   // aceso a la carpeta public para las imagenes y los html
   app.use(express.static(__dirname + '/public'));
   // Enciptacion de sesion
-  app.use(session({ secret: 'topsecret',
-                  saveUninitialized: true,
-                  resave: true }));
+  app.use(session({ secret: 'topsecret'}));
   });
 
 // La esquema para la base de datos de los usuarios
 var usuario = new mongoose.Schema({
   name: String,
-  password: String
+  password: String,
+  mail: String
 },{ collection : 'Users' });
 
 // Crear la variable de la esquema del usuario
@@ -52,7 +53,9 @@ passport.serializeUser(function(user, done) {
   done(null, user);
 });
 passport.deserializeUser(function(user, done) {
-  done(null, user);
+  Users.findById(id, function(err, user) {
+    done(err, user);
+  });
 });
 
 // Recoger usuario local
@@ -72,7 +75,7 @@ passport.use(new LocalStrategy(
       console.log(users);
       console.log(users[0].password);
       console.log(users[0].name);
-      // Recoger la contraseÃ±a en una variable
+      // Recoger la contraseña en una variable
       var hash = users[0].password;
       // Comparar el usuario de la base de datos y el que se ha introducido
       if ((username == users[0].name) && (password==hash)) {
@@ -84,8 +87,8 @@ passport.use(new LocalStrategy(
         console.log("resultados:");
         console.log("usuario local: "+username);
         console.log("usuario db: "+users[0].name);
-        console.log("contraseÃ±a local: "+password);
-        console.log("contraseÃ±a bd: "+users[0].password);
+        console.log("contraseña local: "+password);
+        console.log("contraseña bd: "+users[0].password);
         return done(null, false);
       }
     });
@@ -106,6 +109,41 @@ app.get('/loginSuccess', ensureAuthenticated, function(req,res) {
   res.send('Login OK!!!');
 });
 
+app.post('/register', function(req, res) {
+  // attach POST to user schema
+  var user = new Users({
+    name: req.body.user2,
+    password: req.body.pass2,
+    mail: req.body.mail
+  });
+  // save in Mongo
+  user.save(function(err) {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('user: ' + req.body.user2 + " saved.");
+      req.login(user, function(err) {
+        if (err) {
+          console.log(err);
+        }
+        return res.redirect('/pagina.html');
+      });
+    }
+  });
+});
+function loggedIn(req, res, next) {
+    if (req.user) {
+        console.log('HOLA!'+req.user);
+        next();
+    } else {
+      console.log('HOLA!'+req.user);
+        res.redirect('/login');
+    }
+}
+app.get('/consulta', loggedIn, function(req, res, next) {
+    // req.user - will exist
+    // load user orders and render them
+});
 // Comprobar la autentificacion del usuario para que no
 // se pueda acceder de otra manera
 function ensureAuthenticated(req, res, next) {
@@ -119,9 +157,9 @@ app.use(session({
                 })
 );
 // Redirecciones
-// Salir de la sesion ...Â¿?
+// Salir de la sesion ...¿?
 app.get('/logout', function(req, res){
-  req.session.user = null;
+  req.logout();
   res.redirect('/');
 });
 app.get('/', function(req,res) {
@@ -130,6 +168,12 @@ app.get('/', function(req,res) {
 app.get('/login', function(req, res){
   res.redirect('pagina.html');
 });
+
 // Escuchar en el puerto 5000 el servidor Express
-app.listen(5000);
-console.log('Servidor Express escuchando en el puerto 5000');
+/*app.listen(5000);
+console.log('Servidor Express escuchando en el puerto 5000');*/
+
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 5000; 
+var ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+app.listen(port,ip);
+console.log('Servidor Express escuchando en el puerto 8080');
