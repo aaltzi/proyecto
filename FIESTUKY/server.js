@@ -75,19 +75,22 @@ passport.use(new LocalStrategy(
       // Recoger la contraseña en una variable
       var hash = users[0].password;
       // Comparar el usuario de la base de datos y el que se ha introducido
-      if ((username == users[0].name) && (password==hash)) {
-        // login Bien
-        return done(null, username);
-      } else {
-        // login Mal
-        // Comprobaciones
-        console.log("resultados:");
-        console.log("usuario local: "+username);
-        console.log("usuario db: "+users[0].name);
-        console.log("contraseña local: "+password);
-        console.log("contraseña bd: "+users[0].password);
-        return done(null, false);
-      }
+      console.log(users[0].id);
+
+        if ((username == users[0].name) && (password==hash)) {
+          // login Bien
+          return done(null, username);
+        } else {
+          // login Mal
+          // Comprobaciones
+          console.log("resultados:");
+          console.log("usuario local: "+username);
+          console.log("usuario db: "+users[0].name);
+          console.log("contraseña local: "+password);
+          console.log("contraseña bd: "+users[0].password);
+          return done(null, false);
+        }
+      
     });
   }
 ));
@@ -145,6 +148,7 @@ app.get('/consulta', loggedIn, function(req, res, next) {
 // se pueda acceder de otra manera
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
+  console.log('HOLA!'+req.user);
   res.redirect('/pagina.html');
 }
 

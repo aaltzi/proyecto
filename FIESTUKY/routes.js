@@ -83,8 +83,5 @@ app.get('/logout', function(req, res){
 app.get('/', function(req,res) {
   res.redirect('index.html');
 });
-app.get('/login', function(req, res){
-  res.redirect('pagina.html');
-});
 
 };
