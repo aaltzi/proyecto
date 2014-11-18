@@ -36,18 +36,15 @@ app.configure(function() {
   app.use(express.static(__dirname + '/public'));
   // Enciptacion de sesion
   app.use(session({ secret: 'topsecret'}));
+  app.use(session({
+                  resave:true,
+                  saveUninitialized:true,
+                  secret:'uwotm8'
+                })
+  );
   });
 
-// La esquema para la base de datos de los usuarios
-var usuario = new mongoose.Schema({
-  name: String,
-  password: String,
-  mail: String
-},{ collection : 'Users' });
-
-// Crear la variable de la esquema del usuario
-var Users = mongoose.model('Users',usuario);
-
+var Users = require('./usuario');
 // Passport 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -150,25 +147,9 @@ function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/pagina.html');
 }
-app.use(session({
-                  resave:true,
-                  saveUninitialized:true,
-                  secret:'uwotm8'
-                })
-);
-// Redirecciones
-// Salir de la sesion ...¿?
-app.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
-});
-app.get('/', function(req,res) {
-  res.redirect('index.html');
-});
-app.get('/login', function(req, res){
-  res.redirect('pagina.html');
-});
 
+
+require('./routes')(app);
 // Escuchar en el puerto 5000 el servidor Express
 /*app.listen(5000);
 console.log('Servidor Express escuchando en el puerto 5000');*/

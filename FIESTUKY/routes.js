@@ -1,6 +1,6 @@
 module.exports = function(app) {
 
-	var Usuario = require('./server');
+	var Usuario = require('./usuario');
 
 	// GET
 	findAllUsuarios = function(req,res) {
@@ -39,7 +39,7 @@ module.exports = function(app) {
 
 	// PUT (Update)
 	updateUsuario = function(req, res) {
-		Usuario.findById(req.params.id, function(err, serietv){
+		Usuario.findById(req.params.id, function(err, usuario){
 			usuario.nombre= req.body.nombre;
 			usuario.pass= req.body.pass;
 			usuario.correo= req.body.correo;
@@ -55,8 +55,12 @@ module.exports = function(app) {
 	deleteUsuario = function(req, res){
 		Usuario.findById(req.params.id, function(err, usuario) {
 			usuario.remove(function(err) {
-				if(!err) console.log('Usuario Borrado!');
-				else console.log('ERROR: '+err);
+				if(!err){
+					console.log('Usuario Borrado!');
+					res.redirect('/');
+				}else{
+					console.log('ERROR: '+err);
+				}
 			});
 		});
 	}
@@ -66,5 +70,21 @@ module.exports = function(app) {
 	app.get('/usuarios/:id', findById);
 	app.post('/usuario_nuevo', addUsuario);
 	app.put('/usuarios_editar/:id', updateUsuario);
-	app.delete('/usuarios_borrar/:id', deleteUsuario);
+	app.get('/usuarios_borrar/:id', deleteUsuario);
+
+	///*************************///
+
+	// Redirecciones
+// Salir de la sesion ...¿?
+app.get('/logout', function(req, res){
+  //req.logout();
+  res.redirect('/');
+});
+app.get('/', function(req,res) {
+  res.redirect('index.html');
+});
+app.get('/login', function(req, res){
+  res.redirect('pagina.html');
+});
+
 };
